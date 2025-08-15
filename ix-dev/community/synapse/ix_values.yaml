@@ -1,0 +1,38 @@
+images:
+  image:
+    repository: ghcr.io/element-hq/synapse
+    tag: "v1.135.2"
+  mas_image:
+    repository: ghcr.io/element-hq/matrix-authentication-service
+    tag: "1.0.0"
+  postgres_17_image:
+    repository: postgres
+    tag: "17.6"
+  redis_image:
+    repository: valkey/valkey
+    tag: 8.1.3
+  postgres_upgrade_image:
+    repository: ixsystems/postgres-upgrade
+    tag: 1.0.3
+
+consts:
+  synapse_container_name: synapse
+  synapse_gen_worker_container_name: synapse-generic-worker-1
+  synapse_fed_sender_container_name: synapse-federation-sender-1
+  mas_container_name: mas
+  perms_container_name: permissions
+  postgres_synapse_container_name: postgres-synapse
+  postgres_mas_container_name: postgres-mas
+  redis_container_name: redis
+  data_synapse_path: /data
+  data_mas_path: /data
+  db_synapse_user: synapse
+  db_synapse_name: synapse
+  db_mas_user: mas
+  db_mas_name: mas
+  pg_run_user: 999
+  pg_run_group: 999
+  redis_run_user: 1001
+  redis_run_group: 0
+  mas_run_user: 0
+  mas_run_group: 0

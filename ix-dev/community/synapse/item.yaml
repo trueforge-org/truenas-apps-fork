@@ -1,0 +1,11 @@
+categories:
+- productivity
+icon_url: https://media.sys.truenas.net/apps/synapse/icons/icon.png
+screenshots:
+- https://media.sys.truenas.net/apps/synapse/screenshots/screenshot1.png
+- https://media.sys.truenas.net/apps/synapse/screenshots/screenshot2.png
+- https://media.sys.truenas.net/apps/synapse/screenshots/screenshot3.png
+- https://media.sys.truenas.net/apps/synapse/screenshots/screenshot4.png
+tags:
+- workflows
+- automation

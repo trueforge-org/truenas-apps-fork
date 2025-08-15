@@ -1,0 +1,53 @@
+resources:
+  limits:
+    cpus: 2.0
+    memory: 4096
+
+TZ: Europe/Paris
+
+synapse:
+  postgres_image_selector: postgres_17_image
+  web_host: localhost
+  db_password: db-synapse-password
+  redis_password: redis-synapse-password
+  encryption_key: synapse-encryption-key
+  additional_envs: []
+
+network:
+  web_port:
+    bind_mode: published
+    port_number: 8080
+  certificate_id:
+
+run_as:
+  user: 0
+  group: 0
+
+ix_volumes:
+  data_synapse: /opt/tests/mnt/data_synapse
+  data_mas: /opt/tests/mnt/data_mas
+  postgres_synapse_data: /opt/tests/mnt/postgres_synapse_data
+  postgres_mas_data: /opt/tests/mnt/postgres_mas_data
+
+storage:
+  data_synapse:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: data_synapse
+      create_host_path: true
+  data_mas:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: data_mas
+      create_host_path: true
+  postgres_synapse_data:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: postgres_synapse_data
+      create_host_path: true
+  postgres_mas_data:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: postgres_mas_data
+      create_host_path: true
+  additional_storage: []
