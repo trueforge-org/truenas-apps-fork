@@ -27,6 +27,8 @@ ix_volumes:
   data_synapse: /opt/tests/mnt/data_synapse
   data_mas: /opt/tests/mnt/data_mas
   data_ext: /opt/tests/mnt/data_ext
+  data_nginx: /opt/tests/mnt/data_nginx
+  data_www: /opt/tests/mnt/data_www
   postgres_synapse_data: /opt/tests/mnt/postgres_synapse_data
   postgres_mas_data: /opt/tests/mnt/postgres_mas_data
   postgres_ext_data: /opt/tests/mnt/postgres_mas_data
@@ -41,6 +43,16 @@ storage:
     type: ix_volume
     ix_volume_config:
       dataset_name: data_mas
+      create_host_path: true
+  data_nginx:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: data_nginx
+      create_host_path: true
+  data_www:
+    type: ix_volume
+    ix_volume_config:
+      dataset_name: data_www
       create_host_path: true
   data_ext:
     type: ix_volume
