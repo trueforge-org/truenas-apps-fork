@@ -99,6 +99,10 @@
 
 {% do c5.set_command("/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'") %}
 
+{% do c5.add_port(values.network.web_port) %}
+{% do c5.add_port(values.network.ssl_web_port) %}
+{% do c5.add_port(values.network.matrix_port) %}
+
 {% set perms_config = {"uid": values.consts.nginx_run_user, "gid": values.consts.nginx_run_group, "mode": "check"} %}
 {% do c5.add_storage(values.consts.data_nginx_path, values.storage.data_nginx) %}
 {% do perm_container.add_or_skip_action("data_nginx", values.storage.data_nginx, perms_config) %}

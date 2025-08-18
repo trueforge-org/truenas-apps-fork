@@ -16,7 +16,13 @@ synapse:
 network:
   web_port:
     bind_mode: published
-    port_number: 8080
+    port_number: 80
+  ssl_web_port:
+    bind_mode: published
+    port_number: 443
+  matrix_port:
+    bind_mode: published
+    port_number: 8448
   certificate_id:
 
 run_as:
