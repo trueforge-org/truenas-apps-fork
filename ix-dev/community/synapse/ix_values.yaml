@@ -29,6 +29,7 @@ consts:
   synapse_fed_sender_container_name: synapse-federation-sender-1
   mas_container_name: mas
   nginx_container_name: nginx
+  init_container_name: init
   perms_container_name: permissions
   postgres_synapse_container_name: postgres-synapse
   postgres_mas_container_name: postgres-mas
@@ -49,3 +50,5 @@ consts:
   mas_run_group: 0
   nginx_run_user: 0
   nginx_run_group: 0
+  init_run_user: 0
+  init_run_group: 0
