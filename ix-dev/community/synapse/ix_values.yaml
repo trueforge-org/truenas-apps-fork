@@ -19,6 +19,9 @@ images:
   postgres_upgrade_image:
     repository: ixsystems/postgres-upgrade
     tag: 1.0.3
+  init_image:
+    repository: "bash"
+    tag: "5.2"
 
 consts:
   synapse_container_name: synapse
