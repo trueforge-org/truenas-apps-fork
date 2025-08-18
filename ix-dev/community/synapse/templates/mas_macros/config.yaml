@@ -1,0 +1,3 @@
+{% macro mas_config_yaml() -%}
+
+{%- endmacro %}
