@@ -119,19 +119,19 @@
 
 {% do c6.set_command("/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'") %}
 
-{% set perms_config = {"uid": values.run_as.user, "gid": values.run_as.group, "mode": "check"} %}
+{% set synapse_perms_config = {"uid": values.run_as.user, "gid": values.run_as.group, "mode": "check"} %}
 {% do c1.add_storage(values.consts.data_synapse_path, values.storage.data_synapse) %}
-{% do perm_container.add_or_skip_action("data_synapse", values.storage.data_synapse, perms_config) %}
+{% do perm_container.add_or_skip_action("data_synapse", values.storage.data_synapse, synapse_perms_config) %}
 
-{% set perms_config = {"uid": values.consts.mas_run_user, "gid": values.consts.mas_run_group, "mode": "check"} %}
+{% set mas_perms_config = {"uid": values.consts.mas_run_user, "gid": values.consts.mas_run_group, "mode": "check"} %}
 {% do c4.add_storage(values.consts.data_mas_path, values.storage.data_mas) %}
-{% do perm_container.add_or_skip_action("data_mas", values.storage.data_mas, perms_config) %}
+{% do perm_container.add_or_skip_action("data_mas", values.storage.data_mas, mas_perms_config) %}
 
-{% set perms_config = {"uid": values.consts.nginx_run_user, "gid": values.consts.nginx_run_group, "mode": "check"} %}
+{% set nginx_perms_config = {"uid": values.consts.nginx_run_user, "gid": values.consts.nginx_run_group, "mode": "check"} %}
 {% do c5.add_storage(values.consts.data_nginx_path, values.storage.data_nginx) %}
-{% do perm_container.add_or_skip_action("data_nginx", values.storage.data_nginx, perms_config) %}
+{% do perm_container.add_or_skip_action("data_nginx", values.storage.data_nginx, nginx_perms_config) %}
 {% do c5.add_storage(values.consts.data_www_path, values.storage.data_www) %}
-{% do perm_container.add_or_skip_action("data_www", values.storage.data_www, perms_config) %}
+{% do perm_container.add_or_skip_action("data_www", values.storage.data_www, nginx_perms_config) %}
 
 {% if perm_container.has_actions() %}
   {% do perm_container.activate() %}
